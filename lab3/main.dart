@@ -175,21 +175,24 @@ class HomePageState extends State<HomePage> {
               for (var button in buttons.entries)
                 button.key == ""
                     ? Container()
-                    : ElevatedButton(
-                        onPressed: () {
-                          setState(() {
-                            button.value["action"]();
-                          });
-                        },
-                        style: ElevatedButton.styleFrom(
-                            backgroundColor: button.value["color"] ??
-                                Theme.of(context).colorScheme.primary,
-                            shape: const CircleBorder(),
-                            textStyle: const TextStyle(
-                              fontSize: 36,
-                            )),
-                        child: Text(button.key),
-                      )
+                    : Padding(
+                      padding: const EdgeInsets.all(4.0),
+                      child: ElevatedButton(
+                          onPressed: () {
+                            setState(() {
+                              button.value["action"]();
+                            });
+                          },
+                          style: ElevatedButton.styleFrom(
+                              backgroundColor: button.value["color"] ??
+                                  Theme.of(context).colorScheme.primary,
+                              shape: const CircleBorder(),
+                              textStyle: const TextStyle(
+                                fontSize: 36,
+                              )),
+                          child: Text(button.key),
+                        ),
+                    )
             ],
           ),
         ],
